@@ -4,6 +4,8 @@ import sys, os
 
 from itertools import izip, tee
 
+from pprint import pprint
+
 from bs4 import BeautifulSoup as bsoup
 
 def fishing(proj_dir):
@@ -14,6 +16,7 @@ def fishing(proj_dir):
 
 def file_list(dir):
     file_list = os.listdir(dir)
+    print file_list
     return file_list
 
 def comparison_tuples(list):
@@ -29,10 +32,34 @@ def open_xml(tuple):
     xml_b = bsoup(open(path + tuple[1], 'r').read())
     return xml_a, xml_b
 
+def get_devices(soup):
+    out = []
+    for track in soup.find('tracks').children:
+        # good test to see if it is a valid node
+        if track.name:
+            obj = {'id': track['id'], 'type': track.name}
+            devices = []
+            for device in track.find('devices').children:
+                if device.name:
+                    devices.append(make_device_object(device))
+            obj['devices'] = devices
+            out.append(obj)
+    return out
+
+def make_device_object(device):
+    obj = {}
+    obj['name'] = device.name
+    obj['id'] = device['id']
+    for child in device.children:
+        if child.name:
+            obj[child.name] = child.attrs
+    print obj
+    return obj
+
 
 def main():
-    tuple =  [t for t in comparison_tuples(file_list(sys.argv[1]))][0]
-    return open_xml(tuple)
+    tuple =  [t for t in comparison_tuples(file_list(sys.argv[1]))][-1]
+    return get_devices(open_xml(tuple)[0])
 
 if __name__ == '__main__':
-    print main()
+    pprint(main())
