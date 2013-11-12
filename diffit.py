@@ -4,11 +4,11 @@ import sys, os, json
 
 from itertools import izip, tee
 
-
-
 from pprint import pprint
 
 from bs4 import BeautifulSoup as bsoup
+
+from xml2json import xml2json
 
 def fishing(proj_dir):
     # for when you have to find the xml files in hidden directories
@@ -18,7 +18,7 @@ def fishing(proj_dir):
 
 
 def file_list(dir):
-    file_list = os.listdir(dir)
+    file_list = [dir + '/' + file for file in os.listdir(dir)]
     print file_list
     return file_list
 
@@ -63,21 +63,21 @@ def make_device_object(device):
 
 def make_set_file(file_list):
     out = []
-    path = 'xml/'
     for file in file_list:
-        print file
-        xml = bsoup(open(path + file, 'r').read())
-        # print xml
-        out.append({
-            'tracks': get_devices(xml),
-            'filename': file
-        })
+        #print file
+        f = open(file, 'r')
+        xml = f.read()
+        #print xml
+        try:
+            dict =json.loads(xml2json(xml, 0, 1))
+            dict['@XMLFilename'] = file
+            out.append(dict)
+        except Exception as e:
+            print e
     return out
 
 
 def main():
-    # tuple =  [t for t in comparison_tuples(file_list(sys.argv[1]))][-1]
-    # return get_devices(open_xml(tuple)[0])
     final_json = json.dumps(make_set_file(file_list(sys.argv[1])), indent=4)
     f = open('diff_log.json', 'w')
     f.write(final_json)
