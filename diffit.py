@@ -14,6 +14,7 @@ def fishing(proj_dir):
     file_list = os.listdir(proj_dir + addendum)
     return file_list
 
+
 def file_list(dir):
     file_list = os.listdir(dir)
     print file_list
@@ -36,30 +37,42 @@ def get_devices(soup):
     out = []
     for track in soup.find('tracks').children:
         # good test to see if it is a valid node
-        if track.name:
-            obj = {'id': track['id'], 'type': track.name}
-            devices = []
-            for device in track.find('devices').children:
-                if device.name:
-                    devices.append(make_device_object(device))
-            obj['devices'] = devices
-            out.append(obj)
-    return out
+        if track != '\n':
+            if track.name:
+                obj = {'id': track['id'], 'type': track.name}
+                devices = []
+                for device in track.find('devices').children:
+                    if device != '\n':
+                        if device.name:
+                            devices.append(make_device_object(device))
+                            obj['devices'] = devices
+                out.append(obj)
+                return out
 
 def make_device_object(device):
     obj = {}
     obj['name'] = device.name
     obj['id'] = device['id']
     for child in device.children:
-        if child.name:
-            obj[child.name] = child.attrs
-    print obj
+        if child != '\n':
+            if child.name:
+                obj[child.name] = child.attrs
     return obj
+
+def make_set_file(file_list):
+    out = []
+    path = 'xml/'
+    for file in file_list:
+        print file
+        xml = bsoup(open(path + file, 'r').read())
+        # print xml
+        print get_devices(xml)
 
 
 def main():
-    tuple =  [t for t in comparison_tuples(file_list(sys.argv[1]))][-1]
-    return get_devices(open_xml(tuple)[0])
+    # tuple =  [t for t in comparison_tuples(file_list(sys.argv[1]))][-1]
+    # return get_devices(open_xml(tuple)[0])
+    return make_set_file(file_list(sys.argv[1]))
 
 if __name__ == '__main__':
     pprint(main())
