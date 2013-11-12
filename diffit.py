@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 
-import sys, os
+import sys, os, json
 
 from itertools import izip, tee
+
+
 
 from pprint import pprint
 
@@ -45,9 +47,9 @@ def get_devices(soup):
                     if device != '\n':
                         if device.name:
                             devices.append(make_device_object(device))
-                            obj['devices'] = devices
+                obj['devices'] = devices
                 out.append(obj)
-                return out
+    return out
 
 def make_device_object(device):
     obj = {}
@@ -66,13 +68,20 @@ def make_set_file(file_list):
         print file
         xml = bsoup(open(path + file, 'r').read())
         # print xml
-        print get_devices(xml)
+        out.append({
+            'tracks': get_devices(xml),
+            'filename': file
+        })
+    return out
 
 
 def main():
     # tuple =  [t for t in comparison_tuples(file_list(sys.argv[1]))][-1]
     # return get_devices(open_xml(tuple)[0])
-    return make_set_file(file_list(sys.argv[1]))
+    final_json = json.dumps(make_set_file(file_list(sys.argv[1])), indent=4)
+    f = open('diff_log.json', 'w')
+    f.write(final_json)
+    return final_json
 
 if __name__ == '__main__':
-    pprint(main())
+    print main()
