@@ -26,7 +26,7 @@ class DictDiffer(object):
         self._added,self._removed,self._changed,self._unchanged = self.diff_dicts(current_dict, past_dict)
 
         for key in (self._changed + self._unchanged):
-            print key
+            # print key
             #if isinstance(current_dict[key[-1]], dict) and isinstance(past_dict[key[-1]], dict):
             #    self._extend( key[-1], self.__class__(current_dict[key[-1]], past_dict[key[-1]]) )
             if isinstance(current_dict[key], dict) and isinstance(past_dict[key], dict):

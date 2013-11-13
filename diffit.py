@@ -10,6 +10,8 @@ from bs4 import BeautifulSoup as bsoup
 
 from xml2json import xml2json
 
+from dictdiffer import DictDiffer
+
 def fishing(proj_dir):
     # for when you have to find the xml files in hidden directories
     addendum = '.koda' if proj_dir.endswith('/') else '/.koda'
@@ -30,9 +32,8 @@ def comparison_tuples(list):
 
 def open_xml(tuple):
     # open a tuple into a python-friendly form
-    path = 'xml/'
-    xml_a = bsoup(open(path + tuple[0], 'r').read())
-    xml_b = bsoup(open(path + tuple[1], 'r').read())
+    xml_a = open(tuple[0], 'r').read()
+    xml_b = open(tuple[1], 'r').read()
     return xml_a, xml_b
 
 def get_devices(soup):
@@ -76,12 +77,29 @@ def make_set_file(file_list):
             print e
     return out
 
+def compare_sets(file_list):
+    comparison_list = comparison_tuples(file_list)
+    for tuple in comparison_list:
+        print tuple
+        past_xml, current_xml = open_xml(tuple)
+        past_dict = json.loads(xml2json(past_xml, 0, 1))
+        current_dict = json.loads(xml2json(current_xml, 0, 1))
+        differ = DictDiffer(current_dict['Ableton']['LiveSet']['Tracks'], past_dict['Ableton']['LiveSet']['Tracks'])
+        print "ADDED"
+        print json.dumps(differ.added(), indent=4)
+        print "REMOVED"
+        print json.dumps(differ.removed(), indent=4)
+        print "CHANGED"
+        print json.dumps(differ.changed(), indent=4)
+
+
 
 def main():
-    final_json = json.dumps(make_set_file(file_list(sys.argv[1])), indent=4)
-    f = open('diff_log.json', 'w')
-    f.write(final_json)
-    return final_json
+    #final_json = json.dumps(make_set_file(file_list(sys.argv[1])), indent=4)
+    #f = open('diff_log.json', 'w')
+    #f.write(final_json)
+    #return final_json
+    compare_sets(file_list(sys.argv[1]))
 
 if __name__ == '__main__':
     print main()
