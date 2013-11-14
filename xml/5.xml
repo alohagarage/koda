@@ -209,7 +209,79 @@
 							<ClipSlot>
 								<LomId Value="0" />
 								<ClipSlot>
-									<Value />
+									<Value>
+										<MidiClip Time="0">
+											<LomId Value="0" />
+											<CurrentStart Value="0" />
+											<CurrentEnd Value="4" />
+											<Loop>
+												<LoopStart Value="0" />
+												<LoopEnd Value="4" />
+												<StartRelative Value="0" />
+												<LoopOn Value="true" />
+												<OutMarker Value="4" />
+												<HiddenLoopStart Value="0" />
+												<HiddenLoopEnd Value="4" />
+											</Loop>
+											<Name Value="" />
+											<Annotation Value="" />
+											<ColorIndex Value="4" />
+											<LaunchMode Value="0" />
+											<LaunchQuantisation Value="0" />
+											<TimeSignature>
+												<TimeSignatures>
+													<RemoteableTimeSignature>
+														<Numerator Value="4" />
+														<Denominator Value="4" />
+														<Time Value="0" />
+													</RemoteableTimeSignature>
+												</TimeSignatures>
+											</TimeSignature>
+											<ModulationList>
+												<Modulations />
+											</ModulationList>
+											<ScrollerTimePreserver>
+												<LeftTime Value="0" />
+												<RightTime Value="0" />
+											</ScrollerTimePreserver>
+											<TimeSelection>
+												<AnchorTime Value="0" />
+												<OtherTime Value="0" />
+											</TimeSelection>
+											<Legato Value="false" />
+											<Ram Value="false" />
+											<GrooveSettings>
+												<GrooveId Value="-1" />
+											</GrooveSettings>
+											<Disabled Value="false" />
+											<VelocityAmount Value="0" />
+											<FollowTime Value="4" />
+											<FollowActionA Value="0" />
+											<FollowActionB Value="0" />
+											<FollowChanceA Value="1" />
+											<FollowChanceB Value="0" />
+											<Grid>
+												<FixedNumerator Value="1" />
+												<FixedDenominator Value="16" />
+												<GridIntervalPixel Value="20" />
+												<Ntoles Value="2" />
+												<SnapToGrid Value="true" />
+												<Fixed Value="true" />
+											</Grid>
+											<FreezeStart Value="0" />
+											<FreezeEnd Value="0" />
+											<Notes>
+												<KeyTracks />
+											</Notes>
+											<BankSelectCoarse Value="-1" />
+											<BankSelectFine Value="-1" />
+											<ProgramChange Value="-1" />
+											<NoteEditorFoldInZoom Value="-1" />
+											<NoteEditorFoldInScroll Value="-1" />
+											<NoteEditorFoldOutZoom Value="1191" />
+											<NoteEditorFoldOutScroll Value="-512" />
+										</MidiClip>
+									</Value>
 								</ClipSlot>
 								<HasStop Value="true" />
 								<NeedRefreeze Value="true" />
@@ -1177,7 +1249,7 @@
 										</MidiControllerRange>
 										<ModulationTarget Id="1183" />
 									</OscillatorSemi>
-									<OscillatorSemiRelativePosition Value="-64" />
+									<OscillatorSemiRelativePosition Value="-25" />
 									<OscillatorMode>
 										<LomId Value="0" />
 										<ArrangerAutomation>
@@ -2995,7 +3067,98 @@
 							<ClipSlot>
 								<LomId Value="0" />
 								<ClipSlot>
-									<Value />
+									<Value>
+										<MidiClip Time="0">
+											<LomId Value="0" />
+											<CurrentStart Value="0" />
+											<CurrentEnd Value="4" />
+											<Loop>
+												<LoopStart Value="0" />
+												<LoopEnd Value="4" />
+												<StartRelative Value="0" />
+												<LoopOn Value="true" />
+												<OutMarker Value="4" />
+												<HiddenLoopStart Value="0" />
+												<HiddenLoopEnd Value="4" />
+											</Loop>
+											<Name Value="" />
+											<Annotation Value="" />
+											<ColorIndex Value="6" />
+											<LaunchMode Value="0" />
+											<LaunchQuantisation Value="0" />
+											<TimeSignature>
+												<TimeSignatures>
+													<RemoteableTimeSignature>
+														<Numerator Value="4" />
+														<Denominator Value="4" />
+														<Time Value="0" />
+													</RemoteableTimeSignature>
+												</TimeSignatures>
+											</TimeSignature>
+											<ModulationList>
+												<Modulations />
+											</ModulationList>
+											<ScrollerTimePreserver>
+												<LeftTime Value="0" />
+												<RightTime Value="0" />
+											</ScrollerTimePreserver>
+											<TimeSelection>
+												<AnchorTime Value="2.25" />
+												<OtherTime Value="2" />
+											</TimeSelection>
+											<Legato Value="false" />
+											<Ram Value="false" />
+											<GrooveSettings>
+												<GrooveId Value="-1" />
+											</GrooveSettings>
+											<Disabled Value="false" />
+											<VelocityAmount Value="0" />
+											<FollowTime Value="4" />
+											<FollowActionA Value="0" />
+											<FollowActionB Value="0" />
+											<FollowChanceA Value="1" />
+											<FollowChanceB Value="0" />
+											<Grid>
+												<FixedNumerator Value="1" />
+												<FixedDenominator Value="16" />
+												<GridIntervalPixel Value="20" />
+												<Ntoles Value="2" />
+												<SnapToGrid Value="true" />
+												<Fixed Value="true" />
+											</Grid>
+											<FreezeStart Value="0" />
+											<FreezeEnd Value="0" />
+											<Notes>
+												<KeyTracks>
+													<KeyTrack>
+														<Notes>
+															<MidiNoteEvent Time="2" Duration="0.25" Velocity="120" OffVelocity="64" IsEnabled="true" />
+														</Notes>
+														<MidiKey Value="62" />
+													</KeyTrack>
+													<KeyTrack>
+														<Notes>
+															<MidiNoteEvent Time="0" Duration="0.25" Velocity="120" OffVelocity="64" IsEnabled="true" />
+														</Notes>
+														<MidiKey Value="65" />
+													</KeyTrack>
+													<KeyTrack>
+														<Notes>
+															<MidiNoteEvent Time="1.25" Duration="0.25" Velocity="120" OffVelocity="64" IsEnabled="true" />
+														</Notes>
+														<MidiKey Value="71" />
+													</KeyTrack>
+												</KeyTracks>
+											</Notes>
+											<BankSelectCoarse Value="-1" />
+											<BankSelectFine Value="-1" />
+											<ProgramChange Value="-1" />
+											<NoteEditorFoldInZoom Value="-1" />
+											<NoteEditorFoldInScroll Value="-1" />
+											<NoteEditorFoldOutZoom Value="1191" />
+											<NoteEditorFoldOutScroll Value="-512" />
+										</MidiClip>
+									</Value>
 								</ClipSlot>
 								<HasStop Value="true" />
 								<NeedRefreeze Value="true" />
@@ -3011,7 +3174,79 @@
 							<ClipSlot>
 								<LomId Value="0" />
 								<ClipSlot>
-									<Value />
+									<Value>
+										<MidiClip Time="0">
+											<LomId Value="0" />
+											<CurrentStart Value="0" />
+											<CurrentEnd Value="4" />
+											<Loop>
+												<LoopStart Value="0" />
+												<LoopEnd Value="4" />
+												<StartRelative Value="0" />
+												<LoopOn Value="true" />
+												<OutMarker Value="4" />
+												<HiddenLoopStart Value="0" />
+												<HiddenLoopEnd Value="4" />
+											</Loop>
+											<Name Value="" />
+											<Annotation Value="" />
+											<ColorIndex Value="33" />
+											<LaunchMode Value="0" />
+											<LaunchQuantisation Value="0" />
+											<TimeSignature>
+												<TimeSignatures>
+													<RemoteableTimeSignature>
+														<Numerator Value="4" />
+														<Denominator Value="4" />
+														<Time Value="0" />
+													</RemoteableTimeSignature>
+												</TimeSignatures>
+											</TimeSignature>
+											<ModulationList>
+												<Modulations />
+											</ModulationList>
+											<ScrollerTimePreserver>
+												<LeftTime Value="0" />
+												<RightTime Value="0" />
+											</ScrollerTimePreserver>
+											<TimeSelection>
+												<AnchorTime Value="0" />
+												<OtherTime Value="0" />
+											</TimeSelection>
+											<Legato Value="false" />
+											<Ram Value="false" />
+											<GrooveSettings>
+												<GrooveId Value="-1" />
+											</GrooveSettings>
+											<Disabled Value="false" />
+											<VelocityAmount Value="0" />
+											<FollowTime Value="4" />
+											<FollowActionA Value="0" />
+											<FollowActionB Value="0" />
+											<FollowChanceA Value="1" />
+											<FollowChanceB Value="0" />
+											<Grid>
+												<FixedNumerator Value="1" />
+												<FixedDenominator Value="16" />
+												<GridIntervalPixel Value="20" />
+												<Ntoles Value="2" />
+												<SnapToGrid Value="true" />
+												<Fixed Value="true" />
+											</Grid>
+											<FreezeStart Value="0" />
+											<FreezeEnd Value="0" />
+											<Notes>
+												<KeyTracks />
+											</Notes>
+											<BankSelectCoarse Value="-1" />
+											<BankSelectFine Value="-1" />
+											<ProgramChange Value="-1" />
+											<NoteEditorFoldInZoom Value="-1" />
+											<NoteEditorFoldInScroll Value="-1" />
+											<NoteEditorFoldOutZoom Value="1191" />
+											<NoteEditorFoldOutScroll Value="-512" />
+										</MidiClip>
+									</Value>
 								</ClipSlot>
 								<HasStop Value="true" />
 								<NeedRefreeze Value="true" />
@@ -9533,6 +9768,6 @@
 		<ChooserBar Value="1" />
 		<ViewStateArrangerHasDetail Value="true" />
 		<ViewStateSessionHasDetail Value="true" />
-		<ViewStateDetailIsSample Value="false" />
+		<ViewStateDetailIsSample Value="true" />
 	</LiveSet>
 </Ableton>
