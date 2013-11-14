@@ -36,21 +36,27 @@ def open_xml(tuple):
     xml_b = open(tuple[1], 'r').read()
     return xml_a, xml_b
 
+def file2soup(filename):
+    f = open(filename, 'r')
+    xml = f.read()
+    return bsoup(xml)
+
 def get_devices(soup):
+    # Return all the devices in a set
     out = []
-    for track in soup.find('tracks').children:
-        # good test to see if it is a valid node
-        if track != '\n':
-            if track.name:
-                obj = {'id': track['id'], 'type': track.name}
-                devices = []
-                for device in track.find('devices').children:
-                    if device != '\n':
-                        if device.name:
-                            devices.append(make_device_object(device))
-                obj['devices'] = devices
-                out.append(obj)
+    tracks = [track for track in soup.find('tracks').children if track != '\n']
+    for track in tracks:
+        devices = [device for device in track.find('devices').children if device != '\n']
+        device_dicts = [json.loads(xml2json(str(device), 0, 1)) for device in devices]
+        [out.append(device_dict) for device_dict in device_dicts]
     return out
+
+# TODO need some way of uniquely identifying the devices:
+# ID that goes <DeviceName> + Id?, e.g.
+# <UltraAnalog Id="3"> --> KodaId: UltraAnalog3
+
+def id_device(device_dict):
+    pass
 
 def make_device_object(device):
     obj = {}
@@ -99,7 +105,8 @@ def main():
     #f = open('diff_log.json', 'w')
     #f.write(final_json)
     #return final_json
-    compare_sets(file_list(sys.argv[1]))
+    #compare_sets(file_list(sys.argv[1]))
+    return get_devices(file2soup(file_list(sys.argv[1])[-1]))
 
 if __name__ == '__main__':
-    print main()
+    pprint(main())
